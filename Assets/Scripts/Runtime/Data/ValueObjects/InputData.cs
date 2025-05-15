@@ -1,13 +1,19 @@
 using System;
+using Unity.Mathematics;
 using UnityEngine;
 
 [Serializable]
 public struct InputData
 {
-     public float HorizontalInputSpeed { get; set; }
+    public float HorizontalInputSpeed;
+    public float2 ClampValues;
+    public float ClampSpeed;
 
-     public Vector2 ClampValues { get; set; }
-
-     public float  ClampSpeed { get; set; }
+    public InputData(float horizontalInputSpeed, float2 clampValues, float clampSpeed)
+    {
+        HorizontalInputSpeed = horizontalInputSpeed;
+        ClampValues = clampValues;
+        ClampSpeed = clampSpeed;
+    }
     
 }

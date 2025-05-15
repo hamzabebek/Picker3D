@@ -1,26 +1,12 @@
-using UnityEngine;
+using Runtime.Extensions;
 using UnityEngine.Events;
 
-public class UISignals : MonoBehaviour
+namespace Runtime.Signals
 {
-    #region Singleton
-
-    public static UISignals Instance;
-
-    private void Awake(){
-
-        if (Instance != null && Instance != this){
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
+    public class UISignals : MonoSingleton<UISignals>
+    {
+        public UnityAction<byte> onSetStageColor = delegate { };
+        public UnityAction<byte> onSetLevelValue = delegate { };
+        public UnityAction onPlay = delegate { };
     }
-    #endregion
-
-    public UnityAction<byte> onSetStageColor = delegate { };
-    public UnityAction onTestStageColor = delegate { };
-    public UnityAction<byte> onSetLevelValue = delegate { };
-    public UnityAction onPlay = delegate { };
-
-
 }

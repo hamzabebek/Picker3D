@@ -1,3 +1,4 @@
+using Runtime.Signals;
 using System;
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -110,6 +111,7 @@ public class InputManager : MonoBehaviour
                         HorizontalValue = _moveVector.x,
                         ClampValues = _data.ClampValues
                     });
+                    Debug.Log($"Executed ---> onInputDragged {_moveVector.x}");
                 }
             }
         }

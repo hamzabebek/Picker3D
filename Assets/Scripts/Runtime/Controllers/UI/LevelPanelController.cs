@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Runtime.Signals;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,7 +14,6 @@ public class LevelPanel : MonoBehaviour
     #region Serialized Variables
     [SerializeField] private List<Image> stageImages = new List<Image>();
     [SerializeField] private List<TextMeshProUGUI> levelTexts = new List<TextMeshProUGUI>();
-    [SerializeField] private byte testStageValue = new byte();
     #endregion
 
     #endregion
@@ -26,15 +26,9 @@ public class LevelPanel : MonoBehaviour
     private void SubscribeEvents()
     {
         UISignals.Instance.onSetLevelValue += OnSetLevelValue;
-        UISignals.Instance.onTestStageColor += OnSetTestStageColor;
         UISignals.Instance.onSetStageColor += OnSetStageColor;
     }
 
-    [NaughtyAttributes.Button("TestStageColorButton")]
-    private void OnSetTestStageColor()
-    {
-        stageImages[testStageValue].DOColor(new Color(0.9960785f, 0.4196079f, 0.07843138f), 0.5f);
-    }
     private void OnSetStageColor(byte stageValue)
     {
         stageImages[stageValue].DOColor(new Color(0.9960785f,0.4196079f,0.07843138f), 0.5f);
@@ -51,7 +45,6 @@ public class LevelPanel : MonoBehaviour
     private void UnSubscribeEvents()
     {
         UISignals.Instance.onSetLevelValue -= OnSetLevelValue;
-        UISignals.Instance.onTestStageColor -= OnSetTestStageColor;
         UISignals.Instance.onSetStageColor -= OnSetStageColor;
     }
     private void OnDisable()

@@ -1,7 +1,5 @@
 using Cinemachine;
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using Runtime.Signals;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -40,6 +38,11 @@ public class CameraManager : MonoBehaviour
 
     private void SubscribeEvents()
     {
+        if (CameraSignals.Instance == null)
+        {
+            Debug.LogError("CameraSignals is null");
+            return;
+        }
         CameraSignals.Instance.onSetCameraTarget += OnSetCameraTarget;
         CoreGameSignals.Instance.onReset += OnReset;
     }

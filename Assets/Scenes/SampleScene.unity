@@ -1082,7 +1082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelHolder: {fileID: 1173384590}
-  totalLevelCount: 0
+  totalLevelCount: 4
 --- !u!1 &1496880032
 GameObject:
   m_ObjectHideFlags: 0
@@ -1273,8 +1273,6 @@ MonoBehaviour:
   - {fileID: 598230223}
   - {fileID: 1197009024}
   - {fileID: 951551650}
-  testPanelType: 1
-  testValue: 0
 --- !u!1 &2092031206
 GameObject:
   m_ObjectHideFlags: 0
